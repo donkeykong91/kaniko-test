@@ -76,18 +76,14 @@ spec:
     default: https://github.com/donkeykong91/docker-tekton.git
   - name: branch
     default: master
-  # params:
-  #  - name: username
-  #    description: Username for Docker
-  #  - name: password
-  #    description: Password for Docker
+  - name: IMAGE
+    description: The name of the image to build
+    defualt: test-image
   tasks: 
   - name: kaniko-task
-    # params: 
-    #   - name: username
-    #     value: $(params.username)
-    #   - name: password
-    #     value: $(params.password)
+    params: 
+      - name: IMAGE
+        value: $(params.IMAGE)
     workspaces: 
     - name: source
       workspace: pipeline-workspace
@@ -95,7 +91,7 @@ spec:
       name: kaniko
     runAfter:
     - git-clone
-  - name: git-clone
+  - name: clone
     workspaces:
     - name: artifacts
       workspace: pipeline-workspace          
