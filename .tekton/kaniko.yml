@@ -4,7 +4,7 @@ metadata:
   name: kaniko
 spec:
   params:
-  - name: SCCT-TEST-IMAGE
+  - name: IMAGE
     description: Name (reference) of the image to build.
   - name: DOCKERFILE
     description: Path to the Dockerfile to build.
@@ -29,15 +29,15 @@ spec:
     image: $(params.BUILDER_IMAGE)
     # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
     # https://github.com/tektoncd/pipeline/pull/706
-    # env:
-    # - name: DOCKER_CONFIG
-    #   value: /tekton/home/.docker
+    env:
+    - name: DOCKER_CONFIG
+      value: /tekton/home/.docker
     command:
     - /kaniko/executor
     - $(params.EXTRA_ARGS)
     - --dockerfile=$(params.DOCKERFILE)
     - --context=$(workspaces.source.path)/$(params.CONTEXT)  # The user does not need to care the workspace and the source.
-    - --destination=$(params.SCCT-TEST-IMAGE)
+    - --destination=$(params.IMAGE)
     - --oci-layout-path=$(workspaces.source.path)/$(params.CONTEXT)/image-digest
     # kaniko assumes it is running as root, which means this example fails on platforms
     # that default to run containers as random uid (like OpenShift). Adding this securityContext
@@ -50,7 +50,7 @@ spec:
     # output of imagedigestexport [{"key":"digest","value":"sha256:eed29..660","resourceRef":{"name":"myrepo/myimage"}}]
     command: ["/ko-app/imagedigestexporter"]
     args:
-    - -images=[{"name":"$(params.SCCT-TEST-IMAGE)","type":"image","url":"$(params.SCCT-TEST-IMAGE)","digest":"","OutputImageDir":"$(workspaces.source.path)/$(params.CONTEXT)/image-digest"}]
+    - -images=[{"name":"$(params.IMAGE)","type":"image","url":"$(params.IMAGE)","digest":"","OutputImageDir":"$(workspaces.source.path)/$(params.CONTEXT)/image-digest"}]
     - -terminationMessagePath=$(params.CONTEXT)/image-digested
   - name: digest-to-results
     workingDir: $(workspaces.source.path)
