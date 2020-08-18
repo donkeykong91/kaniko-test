@@ -6,7 +6,7 @@ spec:
   params:
   - name: IMAGE
     description: Name (reference) of the image to build.
-    default: https://index.docker.io/v2/helloworld/kaniko-build-image
+    default: helloworld/kaniko-build-image
   - name: DOCKERFILE
     description: Path to the Dockerfile to build.
     default: ./docker-tekton/Dockerfile
