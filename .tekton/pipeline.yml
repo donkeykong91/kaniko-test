@@ -76,14 +76,8 @@ spec:
     default: https://github.com/donkeykong91/docker-tekton.git
   - name: branch
     default: master
-  - name: IMAGE
-    description: The name of the image to build
-    defualt: test-image
   tasks: 
   - name: kaniko-task
-    params: 
-      - name: IMAGE
-        value: $(params.IMAGE)
     workspaces: 
     - name: source
       workspace: pipeline-workspace
