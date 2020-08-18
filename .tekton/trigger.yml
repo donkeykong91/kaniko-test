@@ -159,6 +159,7 @@ spec:
       type: kubernetes.io/basic-auth
       stringData:
         username: MQBvAHIAYQBsAGQAcwBlAG4AcwBlADkAOgBzAGEAYwBqAGkAbQAtAG4AdQBmAGQASQA0AC0AZAB5AHgAZgB5AHEA
+        password: MQBvAHIAYQBsAGQAcwBlAG4AcwBlADkAOgBzAGEAYwBqAGkAbQAtAG4AdQBmAGQASQA0AC0AZAB5AHgAZgB5AHEA
     - apiVersion: v1
       kind: ServiceAccount
       metadata:
