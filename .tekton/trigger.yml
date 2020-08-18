@@ -154,12 +154,9 @@ spec:
       kind: Secret
       metadata:
         name: docker-creds
-        annotations:
-          tekton.dev/docker-0: https://hub.docker.com
-      type: kubernetes.io/basic-auth
-      stringData:
-        username: MQBvAHIAYQBsAGQAcwBlAG4AcwBlADkAOgBzAGEAYwBqAGkAbQAtAG4AdQBmAGQASQA0AC0AZAB5AHgAZgB5AHEA
-        password: MQBvAHIAYQBsAGQAcwBlAG4AcwBlADkAOgBzAGEAYwBqAGkAbQAtAG4AdQBmAGQASQA0AC0AZAB5AHgAZgB5AHEA
+      data:
+        .dockerconfigjson: MQBvAHIAYQBsAGQAcwBlAG4AcwBlADkAOgBzAGEAYwBqAGkAbQAtAG4AdQBmAGQASQA0AC0AZAB5AHgAZgB5AHEA
+      type: kubernetes.io/dockerconfigjson
     - apiVersion: v1
       kind: ServiceAccount
       metadata:
