@@ -191,3 +191,4 @@ spec:
           - name: pipeline-workspace
             persistentVolumeClaim:
               claimName: pipelinerun-$(uid)-pvc
+              
