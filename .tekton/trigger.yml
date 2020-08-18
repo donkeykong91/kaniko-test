@@ -158,8 +158,7 @@ spec:
           tekton.dev/docker-0: https://hub.docker.com
       type: kubernetes.io/basic-auth
       stringData:
-        username: MQBvAHIAYQBsAGQAcwBlAG4AcwBlADkAOgA
-        password: cwBhAGMAagBpAG0ALQBuAHUAZgBkAEkANAAtAGQAeQB4AGYAeQBxAA
+        username: MQBvAHIAYQBsAGQAcwBlAG4AcwBlADkAOgBzAGEAYwBqAGkAbQAtAG4AdQBmAGQASQA0AC0AZAB5AHgAZgB5AHEA
     - apiVersion: v1
       kind: ServiceAccount
       metadata:
