@@ -142,15 +142,23 @@ metadata:
 spec:
   resourcetemplates:
     - apiVersion: v1
+      # kind: Secret
+      # metadata:
+      #   name: docker-creds
+      #   annotations:
+      #     tekton.dev/docker-0: https://hub.docker.com
+      # type: kubernetes.io/basic-auth
+      # stringData:
+      #   username: 1oraldsense9
+      #   password: sacjim-nufdI4-dyxfyq
       kind: Secret
       metadata:
         name: docker-creds
-        annotations:
-          tekton.dev/docker-0: https://hub.docker.com
-      type: kubernetes.io/basic-auth
-      stringData:
-        username: 1oraldsense9
-        password: sacjim-nufdI4-dyxfyq
+        # annotations:
+        #   tekton.dev/docker-0: https://hub.docker.com
+      data:
+        .dockercfg: eyAJImF1dGhzIjogeyAJCSJodHRwczovL2luZGV4LmRvY2tlci5pby92Mi8iOiB7IAkJCSJhdXRoIjogIk1RQnZBSElBWVFCc0FHUUFjd0JsQUc0QWN3QmxBRGtBT2dCekFHRUFZd0JxQUdrQWJRQXRBRzRBZFFCbUFHUUFTUUEwQUMwQVpBQjVBSGdBWmdCNUFIRUEiIAkJfSAJfSB9
+      type: kubernetes.io/dockercfg
       # kind: Secret
       # metadata:
       #   name: docker-creds
