@@ -91,7 +91,7 @@ spec:
       name: kaniko
     runAfter:
     - git-clone
-  - name: clone
+  - name: git-clone
     workspaces:
     - name: artifacts
       workspace: pipeline-workspace          
