@@ -12,7 +12,7 @@ spec:
     default: ./Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
-    default: ./docker-tekton-kaniko
+    default: ./
   - name: EXTRA_ARGS
     default: ""
   - name: BUILDER_IMAGE
