@@ -36,8 +36,10 @@ spec:
     # env:
     # - name: DOCKER_CONFIG
     #   value: /root/.docker/
-    command:
-    - ls -la
+    command: ["/bin/bash", "-c"]
+    args: 
+    - |
+      ls -la
     # - /kaniko/executor
     # - $(params.EXTRA_ARGS)
     # - --dockerfile=$(params.DOCKERFILE)
