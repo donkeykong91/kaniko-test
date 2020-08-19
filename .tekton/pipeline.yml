@@ -73,7 +73,7 @@ spec:
   - name: pipeline-workspace
   params:
   - name: repository
-    default: https://github.com/donkeykong91/docker-tekton-kaniko.git
+    default: https://github.com/donkeykong91/kaniko-test.git
   - name: branch
     default: master
   tasks: 
