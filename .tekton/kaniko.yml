@@ -9,10 +9,10 @@ spec:
     default: helloworld/kaniko-build-image
   - name: DOCKERFILE
     description: Path to the Dockerfile to build.
-    default: ./docker-tekton/Dockerfile
+    default: ./docker-tekton-kaniko/Dockerfile
   - name: CONTEXT
     description: The build context used by Kaniko.
-    default: ./
+    default: ./docker-tekton-kaniko
   - name: EXTRA_ARGS
     default: ""
   - name: BUILDER_IMAGE
